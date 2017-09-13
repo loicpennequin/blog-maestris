@@ -28,27 +28,12 @@ exports.delete = function(req, db, table){
 exports.put = function(req, db, table){
   let post = req.body,
       sql = "UPDATE " + table +" SET ? WHERE id=" + req.params.id
-  // let fields = Object.keys(req.body),
-  //     sql = "UPDATE " + table +" SET ";
-  // fields.forEach(function(field){
-  //   // if (typeof req.body[field] === 'string' ){
-  //   //   sql += field + "=''" +  `${req.body[field]}` + "', "
-  //   // }else {
-  //   //   sql +=  field + `= ${req.body[field]}, `
-  //   // }
-  //   sql +=  field + "=" + mysql.escape(req.body[field]) + ", "
-  //
-  // });
-  // sql = sql.slice(0, -1);
-  // sql += " WHERE id=" + req.params.id;
-  // console.log(sql);
-  // return request(db, sql);
   return request(db, sql, post);
 };
 
 exports.latest = function(req, db, table){
   let sql = "SELECT * FROM " + table
-            + " WHERE created_at = (SELECT MAX(created_at) FROM " + table + ")";
+            + " ORDER BY created_at DESC LIMIT " + req.params.amount;
   return request(db, sql);
 }
 

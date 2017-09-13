@@ -2,7 +2,7 @@ var app = angular.module('myApp', ["ngRoute", "ngAnimate", "ui.tinymce", "ngSani
 
 app.config(function($routeProvider, $httpProvider){
   $routeProvider
-    .when('/', {templateUrl: 'views/home.html', controller : 'mainCtrl'})
+    .when('/', {templateUrl: 'views/home.html', controller : 'blogCtrl'})
     .when('/login', {templateUrl: 'views/admin_login.html', controller : 'adminCtrl'})
     .when('/admin', {templateUrl: 'views/admin.html', controller : 'adminCtrl'})
     .when('/about', {templateUrl: 'views/about.html', controller : 'blogCtrl'})

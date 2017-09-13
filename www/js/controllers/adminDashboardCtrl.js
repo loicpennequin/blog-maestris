@@ -9,8 +9,11 @@ app.controller('adminDashboardCtrl', function($scope){
 
   $scope.secureRequest('get', 'posts').then(function(posts){
     $scope.posts = posts;
-    $scope.latestPost = $scope.posts[$scope.posts.length-1];
   });
+
+  $scope.secureRequest('get', 'latest/1').then(function(response){
+    $scope.latestPost = response[0];
+  })
 
   $scope.secureRequest('get', 'sitedata').then(function(response){
     $scope.siteData = response.siteData;

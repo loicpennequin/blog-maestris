@@ -14,7 +14,7 @@ module.exports = function(app){
 
   app.get('/api/posts', post.getAll);
   app.get('/api/posts/:column/:value', post.get);
-  app.get('/api/posts/latest', post.latest);
+  app.get('/api/latest/:amount', post.latest);
   app.get('/api/comments', comment.getAll);
   app.get('/api/comments/:column/:value', comment.get);
   app.get('/api/messages', message.getAll);
