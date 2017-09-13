@@ -1,0 +1,53 @@
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2 no-padding admin-menu">
+        <ul class="text-white">
+          <li class=" is-dark highlightable" ng-class="{'active' : activeSection == 'dashboard'}" ng-click="showSection('dashboard')">
+            <span class="glyphicon glyphicon-blackboard"></span>&nbsp; Tableau de bord
+          </li>
+          <li class="is-dark highlightable" ng-class="{'active' : activeSection == 'posts'}" ng-click="showSection('posts')">
+            <span class="glyphicon glyphicon-th-list"></span>&nbsp; Articles
+          </li>
+          <li class="is-dark highlightable" ng-class="{'active' : activeSection == 'comments'}" ng-click="showSection('comments')">
+            <span class="glyphicon glyphicon-comment"></span>&nbsp; Commentaires
+          </li>
+          <li class="is-dark highlightable" ng-class="{'active' : activeSection == 'messages'}" ng-click="showSection('messages')">
+            <span class="glyphicon glyphicon-envelope"></span>&nbsp; Messages
+          </li>
+          <li class="is-dark highlightable" ng-class="{'active' : activeSection == 'categories'}" ng-click="showSection('categories')">
+            <span class="glyphicon glyphicon-tags"></span>&nbsp; Categories
+          </li>
+          <li class="is-dark highlightable" ng-class="{'active' : activeSection == 'images'}" ng-click="showSection('images')">
+            <span class="glyphicon glyphicon-picture"></span>&nbsp; Images
+          </li>
+          <li class="is-color1 highlightable logout" ng-click="logout()">
+            <span class="glyphicon glyphicon-off"></span>&nbsp; Deconnexion
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-sm-10 col-sm-offset-2 admin-content no-padding">
+        <div ng-include="'views/admin/dashboard.html'"
+             ng-if="activeSection == 'dashboard'"
+             ng-controller="adminDashboardCtrl"></div>
+        <div ng-include="'views/admin/posts.html'"
+             ng-if="activeSection == 'posts'"
+             ng-controller="adminPostsCtrl"></div>
+        <div ng-include="'views/admin/comments.html'"
+             ng-if="activeSection == 'comments'"
+             ng-controller="adminCommentsCtrl"></div>
+        <div ng-include="'views/admin/messages.html'"
+             ng-if="activeSection == 'messages'"
+             ng-controller="adminMessagesCtrl"></div>
+        <div ng-include="'views/admin/categories.html'"
+             ng-if="activeSection == 'categories'"
+             ng-controller="adminCategoriesCtrl"></div>
+        <div ng-include="'views/admin/images.html'"
+             ng-if="activeSection == 'images'"
+             ng-controller="adminImagesCtrl"></div>
+      </div>
+    </div>
+  </div>
+</main>
+<div ng-include="'views/components/footer_admin.html'"></div>

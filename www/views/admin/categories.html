@@ -1,0 +1,24 @@
+<h1>Categories</h1>
+<div class="col-sm-10 col-sm-offset-1">
+  <div class="admin-component">
+    <ul class="categories-list">
+      <li class="category" ng-repeat="c in categories">
+        <h3>{{c.name}}</h3>
+        <div class="btn-group">
+          <button type="button" class="button is-color1 text-white">Modifier</button>
+          <button type="button" class="button is-color2 text-white" ng-click="deleteCategory(c)">Supprimer</button>
+        </div>
+        <p>Articles dans cette categorie : </p>
+        <ul>
+          <li ng-repeat="p in c.posts">
+            <a href="#">{{p.title}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="input-group">
+      <input ng-model="newCategory.name" type="text" class="form-control" placeholder="categorie">
+        <button class="button is-color1 text-white" ng-click="addCategory()" >Ajouter une categorie</button>
+    </div>
+  </div>
+</div>

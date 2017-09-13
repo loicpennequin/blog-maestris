@@ -1,0 +1,13 @@
+<nav class="my-nav" ng-controller="navCtrl">
+	<div class="icon-wrapper" ng-class="{'active' : isCollapsed}" ng-click="isCollapsed = !isCollapsed">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
+	</div>
+	<div class="menu-wrapper">
+		<ul ng-if="isCollapsed">
+			<li class="highlightable"><a href="#">A Propos</a></li>
+			<li class="highlightable" ng-repeat="c in categories"><a href="#">{{c.name}}</a></li>
+			<li class="highlightable"><a href="#">Archives</a></li>
+			<li class="highlightable"><a href="#">Contact</a></li>
+		</ul>
+	</div>
+</nav>

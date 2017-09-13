@@ -1,0 +1,48 @@
+@import var
+@import helper
+@import components/all
+@import sections/all
+
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  min-height: 100vh
+
+body
+  background-color: $dark
+  font-family: $font1
+  font-size: 1.4rem
+
+footer
+  position: fixed
+  bottom: 0
+  width: 100%
+  background-color: $white
+  *
+    color: $dark
+    text-decoration: none
+    font-family: $font2
+
+ul
+  list-style: none
+  padding-left: 0
+
+.nav, .pagination, .carousel, .panel-title a
+  cursor: pointer
+
+.my-modal
+  background-color: $white
+  position: absolute
+  top: 0
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 99999
+  padding: 10px
+  box-shadow: $box-shadow
+  border: 1px solid rgba(0, 0, 0, 0.2)
+  border-radius: $border-radius
+
+input
+  font-family: "Trebuchet MS", Helvetica, sans-serif

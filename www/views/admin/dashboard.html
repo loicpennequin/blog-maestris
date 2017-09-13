@@ -1,0 +1,43 @@
+<h1>Tableau de bord</h1>
+
+<div class="admin-section-content">
+  <div class="row">
+
+    <div class="col-sm-4 text-center">
+      <div class="notif highlightable">
+        <h2 class="text-center text-color1" ng-click="showSection('messages')">{{newMessages.length}}</h2>
+        <div class="text-center">nouveaux messages</div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 text-center">
+      <div class="notif highlightable">
+        <h2 class="text-center text-color1" ng-click="showSection('comments')">{{newComments.length}}</h2>
+        <div class="text-center">nouveaux commentaires</div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="admin-component">
+        <h2>Statistiques</h2>
+        <div>Visites totales : {{siteData.total}}</div>
+        <div>Visites ces dernières 24h : {{lastDayVisits.length}}</div>
+        <div>Visites ces 7 derniers jours : {{lastWeekVisits.length}}</div>
+        <div>Visites ces 31 derniers jours : {{lastMonthVisits.length}}</div>
+        <br>
+        <div>Nombre d'articles : {{posts.length}}</div>
+      </div>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="admin-component">
+        <h2>Votre dernier article</h2>
+        <h3>{{latestPost.title}}</h3>
+        <div>par {{latestPost.author}}</div>
+        <article class="well">{{latestPost.summary}}</article>
+        <div>
+          <button class="button is-color1 text-white">Voir l'article</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<main>
+  <h1 class="text-center text-white">Accès a l'espace admin</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <form class="form" name="loginForm" ng-submit="login()">
+          <div class="form-group">
+            <label>Identifiant</label>
+            <input ng-model="loginInput.login" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input ng-model="loginInput.password" type="password" class="form-control">
+          </div>
+          <button class="button is-color1 text-white">Connexion</button>
+        </form>
+        <br>
+        <div class="text-color2">{{connectError}}</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div ng-include="'views/components/footer_admin.html'"></div>

@@ -1,0 +1,57 @@
+.my-nav
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 999
+  width: 100%
+  padding-right: 50px
+  font-size: 1.2em
+  display: flex
+  flex-direction: row-reverse
+  .icon-wrapper
+    border: solid transparent 1px
+    box-sizing: border-box
+    padding: $padding-small $padding-small 3px
+    margin: $padding-medium $padding-medium $padding-medium 0
+    transition: border 0.5s, background-color 0.5s
+    cursor: pointer
+    &:hover, &.active
+      border: solid white 1px
+      background-color: $white-half
+      svg
+        fill: $dark
+    &.active
+      border-left: solid transparent 1px
+    svg
+      fill: $dark
+      transform: scale(1.2)
+      transition: all 0.5s
+  ul
+    box-sizing: border-box
+    border-top: solid white 1px
+    border-bottom: solid white 1px
+    border-left: solid white 1px
+    margin: $padding-medium 0
+    display: flex
+    justify-content: space-around
+    flex-direction: row
+    background: linear-gradient(to right, transparent, $white-half)
+    transition: all 1s
+    &.ng-enter, &.ng-leave.ng-leave-active
+      opacity: 0
+      transform: translateX(100%)
+    &.ng-leave, &.ng-enter.ng-enter-active
+      opacity: 1
+      transform: none
+
+    li
+      padding: $padding-small $padding-large
+      padding-bottom: 4px
+      font-size: 1.2em
+
+    a, a:hover
+      color: $dark
+      text-decoration: none
+
+.menu-wrapper
+  overflow-x: hidden

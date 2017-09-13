@@ -1,0 +1,151 @@
+/*  =============================================================================
+    General
+    ============================================================================= */
+//Sidebar
+
+.admin-menu
+  padding-top: 50px
+  height: 100vh
+  position: fixed
+  top: 0
+  left: 0
+  font-size: 1.2em
+  li
+    padding: $padding-medium
+    cursor: pointer
+  .active
+    filter: brightness(125%)
+  .logout
+    font-size: 1.1em
+    font-weight: bold
+    border-radius: 12px
+    transition: box-shadow 0.3s
+
+//Content
+
+.admin-content
+  background-color: $white
+  min-height: 100vh
+  h1
+    background: $gradient1-3
+    padding: $padding-medium
+    color: $white
+    margin-bottom: 20px
+    font-size: 2em
+  h2
+    font-size: 1.7em
+  h1, h2, table
+    font-family: 'Lato'
+  thead td
+    color: $white
+    background-color: $color1
+
+.admin-section-content
+  padding: $padding-medium $padding-medium 0
+
+.admin-content
+  .notif
+    background-color: $white
+    font-size: 1.5em
+    padding: $padding-medium
+    border-radius: $border-radius
+    border: solid $dark-half 1px
+    display: inline-block
+    box-shadow: $box-shadow
+    h2
+      font-size: 2.5em
+      margin-top: 0
+      text-shadow: 0 3px 3px $dark
+
+  .admin-component
+    background-color: #eee
+    border: solid $dark-half 1px
+    box-shadow: $box-shadow
+    border-radius: $border-radius
+    padding-bottom: $padding-medium
+    margin-bottom: 30px
+    h2
+      color: $white
+      background: $gradient1-3
+      padding: $padding-small
+      margin-top: 0
+      border-top-left-radius: $border-radius
+      border-top-right-radius: $border-radius
+    h3
+      padding: $padding-small
+      margin-bottom: 0
+    div, ul
+      padding: 0 $padding-small
+      .well
+        padding: $padding-large
+    input, select, option
+      max-width: 33%
+    input[type='checkbox']
+      max-width: 100%
+    .close
+      font-size: 1.2em
+      transform: translateY(-5px)
+    p
+      padding-left: $padding-small
+      padding-right: $padding-small
+    a
+      color: $color3
+      font-size: 1.2em
+
+
+/*  =============================================================================
+    Login Screen
+    ============================================================================= */
+
+/*  =============================================================================
+    Dashboard
+    ============================================================================= */
+
+
+/*  =============================================================================
+    Posts
+    ============================================================================= */
+.admin-content
+  .post-comments
+    padding: $padding-medium
+    min-width: 33vw
+    li
+      margin-bottom: 10px
+    h3
+      padding: $padding-small
+    .well
+      font-family: $font2
+      margin-bottom: 0
+
+/*  =============================================================================
+    Comments
+    ============================================================================= */
+
+
+/*  =============================================================================
+    Messagess
+    ============================================================================= */
+
+.message-read
+  color: #999
+
+.selected-message
+  position: fixed
+  bottom: 50px
+  right: 15%
+  z-index: 9999
+  min-width: 40%
+
+/*  =============================================================================
+    Categories
+    ============================================================================= */
+.admin-content .categories-list
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-around
+  .category
+    padding: $padding-small
+    border: solid 1px $dark-half
+    margin: $padding-small
+    h3
+      margin-top: 0

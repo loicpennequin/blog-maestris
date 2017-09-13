@@ -1,0 +1,121 @@
+<h1>Articles</h1>
+
+<!-- Comments modal -->
+<div class="my-modal post-comments" ng-if="showPostComments">
+  <button class="close" ng-click="close('showPostComments')"><span>&times;</span></button></h3>
+  <ul>
+    <li ng-repeat="c in selectedPost.comments">
+      <h3 class="text-color1">{{c.author}} dit :</h3>
+      <div class="well">{{c.body}}</div>
+      <div>le {{c.created_at | date : 'dd MMMM'}}</div>
+      <hr>
+    </li>
+  </ul>
+</div>
+
+<!-- Edit Post modal -->
+<div class="my-modal admin-component" ng-if="showEditForm">
+  <h2>Edition <button class="close" ng-click="close('showEditForm')"><span>&times;</span></button></h2>
+  <form name="update_post_form">
+    <div class="form-group">
+      <label>Titre</label>
+      <input type="text" ng-model="selectedPost.title" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Auteur</label>
+      <input type="text" ng-model="selectedPost.author" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Categorie</label>
+      <select class="form-control"
+      ng-options="c.name for c in categories"
+      ng-model="selectedPost.category"
+      required>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Introduction</label>
+      <input type="text" ng-model="selectedPost.summary" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Article</label>
+      <textarea ui-tinymce="tinymceOptions" ng-model="selectedPost.body" required></textarea>
+    </div>
+    <div class="form-group">
+      <label >Couverture(optionelle)</label>
+      <input class="form-control" type="text" ng-model="selectedPost.image" placeholder="insérez l'adresse de l'image que vous souhaitez utiliser comme couverture de votre article">
+    </div>
+    <button class="button is-color1 text-white" ng-click="updatePost()">Editer l'article</button>
+  </form>
+</div>
+
+<div class="col-sm-10 col-sm-offset-1">
+  <div class="admin-component">
+    <h2>Vos Articles</h2>
+    <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <td>Titre</td>
+          <td>Categorie</td>
+          <td>Auteur</td>
+          <td>Date</td>
+          <td>Commentaires</td>
+          <td>Options</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="p in posts | orderBy : '-created_at'">
+          <td>{{p.title}}</td>
+          <td>{{p.category}}</td>
+          <td>{{p.author}}</td>
+          <td>{{p.created_at | date : 'dd MMM yyyy'}}</td>
+          <td class="highlightable" ng-click="showComments(p)">
+            {{p.comments.length}} (voir)<span ng-if="p.comments.length > 1">s</span>
+          </td>
+          <td>
+            <button class="button is-color1 text-white">Voir</button>
+            <button class="button is-color3 text-white" ng-click="editPost(p)">Modifier</button>
+            <button class="button is-color2 text-white" ng-click=deletePost(p)>Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="admin-component">
+    <h2>Rediger un nouvel article</h2>
+    <form name="new_post_form">
+      <div class="form-group">
+        <label>Titre</label>
+        <input type="text" ng-model="newPost.title" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Auteur</label>
+        <input type="text" ng-model="newPost.author" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Categorie</label>
+        <select class="form-control"
+        ng-options="c.name for c in categories"
+        ng-model="newPost.category"
+        required>
+      </select>
+      </div>
+      <div class="form-group">
+        <label>Introduction</label>
+        <input type="text" ng-model="newPost.summary" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Article</label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="newPost.body" required></textarea>
+      </div>
+      <div class="form-group">
+        <label >Couverture(optionelle)</label>
+        <input class="form-control" type="text" ng-model="newPost.image" placeholder="insérez l'adresse de l'image que vous souhaitez utiliser comme couverture de votre article">
+      </div>
+      <div>
+        <button class="button is-color1 text-white" ng-click="addPost()">Poster l'article</button>
+      </div>
+    </form>
+  </div>
+</div>

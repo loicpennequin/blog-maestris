@@ -1,0 +1,4 @@
+node_modules/
+.env
+vendor/bower_components/
+www/.sass-cache/
