@@ -1,0 +1,41 @@
+.no-padding
+  padding: 0
+
+.highlightable
+  cursor: pointer
+  transition: filter 0.2s
+  &:hover
+    filter: brightness(115%)
+
+// Visibility
+
+.is-hidden
+  display: none !important
+
+.is-hidden-mobile
+  +mobile
+    display: none !important
+
+.is-hidden-tablet
+  +tablet
+    display: none !important
+
+.is-hidden-tablet-only
+  +tablet-only
+    display: none !important
+
+.is-hidden-touch
+  +touch
+    display: none !important
+
+.is-hidden-desktop
+  +desktop
+    display: none !important
+
+.is-hidden-desktop-only
+  +desktop-only
+    display: none !important
+
+.is-hidden-widescreen
+  +widescreen
+    display: none !important

@@ -7,10 +7,11 @@ header
   background-blend-mode: screen
   font-family: $font3
   font-weight: 700
-  text-shadow: 15px 5px 7px $dark
   display: flex
   justify-content: center
   align-items: center
+  +mobile
+    background-position: center
   .bg-panel
     position: absolute
     left: 0
@@ -19,10 +20,13 @@ header
     border: solid $dark 1px
     opacity: 0.7
   h1
+    text-shadow: 15px 5px 7px $dark
     color: $dark
     border: solid $white 2px
     padding: $padding-medium
     font-size: 5em
+    +mobile
+      font-size: 2.6em
     div
       opacity: 0
       display: inline-block

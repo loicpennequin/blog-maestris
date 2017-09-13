@@ -8,6 +8,10 @@
   font-size: 1.2em
   display: flex
   flex-direction: row-reverse
+  +mobile
+    padding-right: $padding-small
+    flex-direction: column
+    align-items: flex-end
   .icon-wrapper
     border: solid transparent 1px
     box-sizing: border-box
@@ -15,19 +19,25 @@
     margin: $padding-medium $padding-medium $padding-medium 0
     transition: border 0.5s, background-color 0.5s
     cursor: pointer
+    +mobile
+      margin-bottom : 0
     &:hover, &.active
       border: solid white 1px
       background-color: $white-half
+      +mobile
+        background-color: $white
       svg
         fill: $dark
     &.active
-      border-left: solid transparent 1px
+      +mobile
+        border-bottom: solid transparent 1px
+      +tablet
+        border-left: solid transparent 1px
     svg
       fill: $dark
       transform: scale(1.2)
       transition: all 0.5s
   ul
-    box-sizing: border-box
     border-top: solid white 1px
     border-bottom: solid white 1px
     border-left: solid white 1px
@@ -37,21 +47,32 @@
     flex-direction: row
     background: linear-gradient(to right, transparent, $white-half)
     transition: all 1s
+    +mobile
+      flex-direction: column
+      background: $white
+      margin-top: 0
+      width: 100vw
     &.ng-enter, &.ng-leave.ng-leave-active
       opacity: 0
       transform: translateX(100%)
     &.ng-leave, &.ng-enter.ng-enter-active
       opacity: 1
       transform: none
-
     li
       padding: $padding-small $padding-large
       padding-bottom: 4px
       font-size: 1.2em
-
-    a, a:hover
+      cursor: pointer
+      font-size: 21px
+      +mobile
+        padding-top: 20px
+        padding-bottom: 20px
+    a
       color: $dark
       text-decoration: none
+      transition: all 0.3s
+      &:hover
+        color: white
 
 .menu-wrapper
   overflow-x: hidden
