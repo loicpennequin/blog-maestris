@@ -17,7 +17,7 @@
         <tr ng-repeat="c in comments | orderBy : '-created_at'" ng-if="c.is_read == 0">
           <td><input type="checkbox" checklist-model="checkedUnreadComments" checklist-value="c"></td>
           <td>{{c.author}}</td>
-          <td>{{c.post.title}}</td>
+          <td><a ng-href="#!/articles/{{c.post.slug}}">{{c.post.title}}</a></td>
           <td>{{c.body}}</td>
           <td>{{c.created_at | date : "dd MMMM yyyy 'à' HH'h'mm" }}</td>
         </tr>
@@ -47,7 +47,7 @@
         <tr ng-repeat="c in comments | orderBy : '-created_at'" ng-if="c.is_read == 1">
           <td><input type="checkbox" checklist-model="checkedReadComments" checklist-value="c"></td>
           <td>{{c.author}}</td>
-          <td>{{c.post.title}}</td>
+          <td><a ng-href="#!/articles/{{c.post.slug}}">{{c.post.title}}</a></td>
           <td>{{c.body}}</td>
           <td>{{c.created_at | date : "dd MMMM yyyy 'à' HH'h'mm" }}</td>
         </tr>

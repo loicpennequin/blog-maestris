@@ -1,1 +1,26 @@
-<h1>Archives</h1>
+<div ng-include="'views/components/header.html'"></div>
+
+<div ng-controller="archiveCtrl" class="page-content">
+  <h2 class="text-center text-white banner">Archives</h2>
+  <div class="container">
+    <div class="row">
+      <main class="col-sm-8 col-sm-offset-2">
+        <div ng-repeat="m in months">
+          <h3>{{m.date | date: "MMMM yyyy"}} ({{m.posts.length}} article<span ng-if="m.posts.length > 1">s</span>)</h3>
+          <ul>
+            <li ng-repeat="p in m.posts | orderBy : '-created_at'">
+              <div class="relatedposts" ng-style="{'background-image': 'url(' + p.image + ')'}"  ng-if="p.id != post.id">
+                  <a ng-href="#!/articles/{{p.slug}}"><h3>{{p.title}}</h3></a>
+                  <div class="post-category is-color3 text-white">{{p.category.name}}</div>
+              </div>
+              <div>{{p.summary}}</div>
+              <a ng-href="#!/articles/{{p.slug}}">Lire la suite <i class="glyphicon glyphicon-arrow-right"></i></a>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'views/components/footer.html'"></div>

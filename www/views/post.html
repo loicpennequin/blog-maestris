@@ -1,1 +1,54 @@
-<h1>page d'Article</h1>
+<div ng-include="'views/components/header.html'"></div>
+
+<div ng-controller="postCtrl" class="page-content">
+  <h2 class="text-center text-white banner">{{post.title}}</h2>
+  <div class="container">
+    <div class="row">
+      <main class="col-sm-6 col-sm-offset-2">
+
+        <div class="post-origin">
+          par {{post.author}}, le {{post.created_at | date: 'dd MMMM yyyy'}}
+        </div>
+        <img ng-src="{{post.image}}" class="img-responsive" alt="couverture de l'article">
+        <div class="post-summary">
+          {{post.summary}}
+        </div>
+        <div ng-bind-html="post.body" class="post-body"></div>
+        <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=">Share on Facebook</a> -->
+        <div class="share-links clearfix" share-links="Google-Plus, Twitter, Facebook" share-title="{{post.title}}"></div>
+
+        <div class="post-comments">
+          <h3 class="is-color1 text-white">Commentaires</h3>
+          <div ng-repeat="c in comments | orderBy : '-created_at'">
+            <div><strong>{{c.author}}</strong> a dit, le {{c.created_at | date: "d MMMM yyyy, à  HH'h'mm "}} :</div>
+            <div class="well">{{c.body}}</div>
+          </div>
+          <div ng-if="comments.length == 0">
+              Il n'y a pas encore de commentaires pour cet article.
+          </div>
+          <h3 class="is-color1 text-white">Ajouter un commentaire</h3>
+          <form ng-submit="addComment()">
+            <div class="form-group">
+              <label>Votre pseudo</label>
+              <input type="text" ng-model="newComment.author" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Votre commentaire</label>
+              <textarea class="form-control" ng-model="newComment.body" rows="4"></textarea>
+            </div>
+            <button class="pull-right button text-white is-color1">Poster</button>
+          </form>
+        </div>
+
+      </main>
+      <aside class="col-sm-4">
+        <h2 class="text-white is-color1">Dans la même categorie :</h2>
+        <div class="relatedposts" ng-style="{'background-image': 'url(' + p.image + ')'}" ng-repeat="p in relatedPosts | orderBy : '-created_at'" ng-if="p.id != post.id">
+          <a ng-href="#!/articles/{{p.slug}}"><h3>{{p.title}}</h3></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'views/components/footer.html'"></div>

@@ -4,8 +4,9 @@
 	</div>
 	<div class="menu-wrapper">
 		<ul ng-if="isCollapsed">
+			<li><a href="#!/">Accueil</a></li>
 			<li><a href="#!/about">A Propos</a></li>
-			<li ng-repeat="c in categories"><a ng-href="#!/{{c.name}}">{{c.name}}</a></li>
+			<li ng-repeat="c in categories"><a ng-href="#!/categories/{{c.name}}">{{c.name}}</a></li>
 			<li><a href="#!/archives">Archives</a></li>
 			<li><a href="#!/contact">Contact</a></li>
 		</ul>

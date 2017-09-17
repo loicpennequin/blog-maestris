@@ -5,9 +5,12 @@
 .page-content
   font-size: 1.1em
   padding-bottom: 20px
+  background-color: #d0d0d0
+
   main
     background-color: $white
     padding-bottom: $padding-medium
+    border: solid 1px #bbb
   .banner
     margin-top: 0
     padding: $padding-medium
@@ -16,30 +19,16 @@
     background: linear-gradient($color1, $color1-dark)
     text-shadow: 2px 2px 0 $dark
     // box-shadow: 0 0 30px 2px $dark inset
-  .posts-list
-    padding: $padding-medium
-    h3
-      margin-bottom: 0
-      font-size: 2em
-    li
-      width: 50%
-      padding: $padding-small
-      display: inline-block
-      vertical-align: top
-      +mobile
-        width: 100%
+
+  .share-links
+
     a, a:hover
-      margin-top: $padding-small
+      float: right
+      color: $dark
+      font-size: 1.7em
+      margin: $padding-small
       text-decoration: none
-      font-size: 1.2em
-      border-radius: $border-radius
-      &:hover
-        i
-          transform: translateX(10px)
-      i
-        transition: all 0.5s
-    article
-      font-size: 1.3em
+
 
 /*  =============================================================================
     Home
@@ -63,13 +52,76 @@
           transform: translateX(10px)
       i
         transition: all 0.5s
-    li:hover img
-      transform: scale(1.2)
+    li
+      width: 50%
+      padding: $padding-small
+      display: inline-block
+      vertical-align: top
+      +mobile
+        width: 100%
+      &:hover img
+        transform: none
+      &:hover .post-category
+        opacity: 0
     .img-wrapper
       border: solid $dark 1px
       overflow: hidden
-    img
-      transition: all 0.5s
+      position: relative
+      img
+        transform: scale(1.2)
+        transition: all 0.5s
     article
       font-size: 1.3em
       margin-top: 15px
+
+.post-category
+  z-index: 2
+  position: absolute
+  top: 5px
+  left: 5px
+  padding: $padding-small
+  border-radius: $border-radius
+  transition: all 0.5s
+/*  =============================================================================
+    Post
+    ============================================================================= */
+
+.post-origin
+  text-align: right
+  color: $color3
+
+.post-summary
+  margin: 30px 0
+  font-weight: 700
+  &, .post-body
+    font-size: 1.2em
+
+aside
+  h2
+    padding: $padding-small
+
+.relatedposts
+  position: relative
+  background-size: cover
+  background-color: $color1
+  padding: $padding-medium $padding-small
+  border: solid $color1-dark 1px
+  margin-bottom: $padding-medium
+  cursor: pointer
+  border-radius: $border-radius
+  a, a:hover
+    text-decoration: none
+  h3
+    color: $white
+    background-color: rgba(0,0,0,0.5)
+    padding: $padding-small
+    border-radius: $border-radius
+    transition: all 0.3s
+    &:hover
+      background-color: rgba(0,0,0,0.8)
+
+.post-comments
+  h3
+    padding: $padding-small
+  textarea
+    font-family: $font2

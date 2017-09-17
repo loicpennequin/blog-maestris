@@ -1,34 +1,17 @@
-<header>
-  <div ng-include="'views/components/navbar-home.html'"></div>
-  <h1>
-    <div>M</div>
-    <div>a</div>
-    <div>e</div>
-    <div>s</div>
-    <div>t</div>
-    <div>r</div>
-    <div>i</div>
-    <div>s</div>
-    <br class="is-hidden-tablet">
-    <div class="is-hidden-mobile">&nbsp;</div>
-    <div>C</div>
-    <div>a</div>
-    <div>m</div>
-    <div>b</div>
-    <div>r</div>
-    <div>a</div>
-    <div>i</div>
-  </h1>
-</header>
+<div ng-include="'views/components/header.html'"></div>
+
 <div ng-controller="homeCtrl" class="page-content">
   <h2 class="text-center text-white banner">Nos derniers articles</h2>
   <div class="container">
     <div class="row">
-      <main class="col-sm-10 col-sm-offset-1">
+      <main class="col-sm-8 col-sm-offset-2">
           <ul class="posts-list">
             <li ng-repeat="p in posts">
               <h3>{{p.title}}</h3>
               <div class="img-wrapper" ng-if="p.image">
+                <div class="post-category is-color1 text-white">
+                  {{p.category.name}}
+                </div>
                 <img class="img-responsive" ng-src="{{p.image}}" />
               </div>
               <div>par {{p.author}}, le {{p.created_at | date: 'dd MMMM yyyy'}}</div>
@@ -46,4 +29,5 @@
     </div>
   </div>
 </div>
+
 <div ng-include="'views/components/footer.html'"></div>

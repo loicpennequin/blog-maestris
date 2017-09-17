@@ -1,1 +1,20 @@
-<h1>articles par categorie</h1>
+<div ng-include="'views/components/header.html'"></div>
+
+<div ng-controller="postByCategoryCtrl" class="page-content">
+  <h2 class="text-center text-white banner">{{category.name}}</h2>
+  <div class="container">
+    <div class="row">
+      <main class="col-sm-8 col-sm-offset-2">
+        <ul>
+          <li ng-repeat="p in posts">
+            {{p.title}}
+          </li>
+        </ul>
+      </main>
+    </div>
+  </div>
+</div>
+
+
+
+<div ng-include="'views/components/footer.html'"></div>
